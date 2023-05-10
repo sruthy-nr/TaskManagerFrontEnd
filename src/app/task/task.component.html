@@ -27,7 +27,7 @@
                   <input type="text" class="form-control" disabled>
                 </div>
                 <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <span style="float: right;">
+                  <span>
                     <button type="button" class="btn btn-outline-primary" disabled>Cancel</button>&nbsp;&nbsp;
                     <button type="button" class="btn btn-outline-secondary" disabled>Save</button>
                   </span>
@@ -36,16 +36,15 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <td scope="col" class="color1" style="width: 800px;">Name</td>
+                        <td scope="col" class="color1">Name</td>
                         <td scope="col" class="color1">Actions</td>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let i of tasks | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total}">
-                        <td style="width: 800px;">{{i.name}}</td>
+                        <td class="td">{{i.name}}</td>
                         <th scope="col">
-                          <a class="icon-link icon-link-hover"
-                            style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+                          <a class="icon-link icon-link-hover icon1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                               class="bi bi-pencil-fill" viewBox="0 0 16 16">
                               <path class="color1"
@@ -53,8 +52,7 @@
                             </svg>
                           </a>&nbsp;&nbsp;
                           <!-- Button trigger modal -->
-                          <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="icon-link icon-link-hover"
-                            style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" (click)="changeId(i.id,i.name)">
+                          <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="icon-link icon-link-hover icon1" (click)="changeId(i.id,i.name)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                               class="bi bi-trash-fill" viewBox="0 0 16 16">
                               <path class="color"
@@ -78,7 +76,7 @@
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                                     <button type="button" class="btn btn-primary"
-                                      (click)="deletebuttonclick()">Yes</button>
+                                      (click)="deletebuttonclick()" data-bs-dismiss="modal">Yes</button>
                                   </div>
                                 </div>
                               </div>
@@ -87,7 +85,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <pagination-controls (pageChange)="pageChangeEvent($event)" style="float:right"></pagination-controls>
+                  <pagination-controls (pageChange)="pageChangeEvent($event)" ></pagination-controls>
               </div>
             </div>
           </div>

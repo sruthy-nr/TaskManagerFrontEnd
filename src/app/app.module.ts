@@ -9,16 +9,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FormsModule } from'@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-const myRoute:Routes=[
-  {
-    path:"",
-    component:NavigationComponent
-  },
-  {
-    path:"task",
-    component:TaskComponent
-  }
-]
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +23,6 @@ const myRoute:Routes=[
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(myRoute),
     FormsModule,
     NgxPaginationModule
     

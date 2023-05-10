@@ -17,3 +17,20 @@
     
     
 }
+pagination-controls
+{
+    float:right;
+}
+.td {
+    width: "800px";
+}
+
+span
+{
+    float:right;
+}
+
+.icon-link icon-link-hover icon1{
+    --bs-icon-link-transform: "translate3d(0, -.125rem, 0)";
+
+}

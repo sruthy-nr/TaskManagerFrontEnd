@@ -11,6 +11,12 @@
  background-color: #2b2d2e;
 
 }
+.navbar-brand 
+{
+
+  color: white;
+
+}
 
 /* The side navigation menu */
 
@@ -42,7 +48,7 @@
 
   display: block;
 
-  color: black;
+  color: white;
 
   padding: 15px;
 

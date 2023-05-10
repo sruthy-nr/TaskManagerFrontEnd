@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router';
 import { PaginatePipe } from 'ngx-pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-task',
@@ -11,33 +12,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class TaskComponent {
   
-  router: any;
   id:any
   name:any
 
   p: number = 1;
   total: number = 0;
   
-
-  view=()=>{
+  constructor(private api: ApiService,private router: Router) {
+    // this.view()
+  }
+  
+  ngOnInit(): void{
     this.api.viewTask().subscribe(
       (response:any) => {
         this.tasks = response.taskList//dto
         console.log(this.tasks)
+       
+        
+        
       }
     )
-  }
-
-  // viewName=()=>{
-  //   let names : any = {
-  //     "name":this.name
-  //   }
-  // }
-  
-  constructor(private api: ApiService, private route: Router) {
-
-    this.view()
-
   }
   
   tasks: any = []
@@ -50,22 +44,22 @@ export class TaskComponent {
     this.api.deleteTask(tasks).subscribe(
       (response: any) => {
         console.log(response)
-        if (response.status == "success") {
-
-          window.location.reload();
-
+        if (response.status == 'success') {
+        
+          this.ngOnInit();
+          
         }
       }
     )
   }
+
+ 
   
   
   changeId = (id:any,name:any)=>
   {
     this.id = id;
     this.name = name;
-    // console.log(this.name)
-    // this.viewName(); 
   }
   names:any=[]
   
@@ -74,7 +68,8 @@ export class TaskComponent {
 
     this.p = event;
     
-     this.view();
+    //  this.view();
+    this.ngOnInit();
   }
 
 }
